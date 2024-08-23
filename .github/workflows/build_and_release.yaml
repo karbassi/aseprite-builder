@@ -36,7 +36,7 @@ jobs:
       download-link: ${{ needs.fetch-aseprite-info.outputs.download-link }}
       release-tag: ${{ needs.fetch-aseprite-info.outputs.release-tag }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: ncipollo/release-action@v1
         with:
           tag: ${{ needs.fetch-aseprite-info.outputs.release-tag }}
@@ -52,7 +52,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
-          os: [ macOS-latest, windows-latest ]
+          os: [ macOS-latest, windows-latest, ubuntu-latest ]
         fail-fast: false
     steps:
       - name: Install dependencies (Windows)
